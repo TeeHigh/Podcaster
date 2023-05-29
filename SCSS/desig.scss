@@ -1,0 +1,239 @@
+$mainOrange: #eb9534;
+$mainGrey: #666;
+$darkBlue: #010a3a;
+
+
+*, *::after, *::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.active{
+    color: black;
+
+    ::after{
+        content: "";
+        background: $mainOrange;
+        display: block;
+        width: 100%;
+        height: 2px;
+        transition: 0.3s;
+        margin: auto;
+    }
+}
+
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    width: fit-content;
+
+    .landing-page{
+        padding: 0 1.5em 3em;
+        background: #eee;
+    
+        header{
+            padding: 2em 0 4em;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .main-logo{
+                display: flex;
+                gap: .5em;
+                align-items: center;
+                cursor: pointer;
+                text-align: center;
+
+                .logo{
+                    height: 1em;
+                    
+                }
+
+                h1{
+                    font-size: 1.5em;
+                }
+            }
+
+            nav{
+                
+
+                .menu, .x-mark{
+                    font-size: 2em;
+                    cursor: pointer;
+                    color: $mainOrange;
+                }
+                .x-mark{
+                    display: none;
+                }
+                @media(min-width: 1000px){
+                    .menu{
+                        display: none;
+                    
+                    }
+                    ul{
+                        gap: 4em;
+                    }
+                }
+                
+                ul{
+                    display: flex;
+                    justify-content: space-between;
+                    white-space: nowrap;
+
+                    li{
+                        list-style: none;
+
+                        ::after{
+                            content: "";
+                            background: $mainOrange;
+                            display: block;
+                            width: 0;
+                            height: 2px;
+                            transition: 0.3s;
+                            margin: auto;
+                        }
+                        :hover::after{
+                            width: 100%;
+                        }
+                        :hover{
+                            color: #000;
+                        }
+
+                        a{
+                            text-decoration: none;
+                            font-weight: 600;
+                            color: $mainGrey;
+                        }
+                        
+                    }
+                }
+            }
+
+            .g-started{
+                
+                a{
+                    color: #fff;
+                    text-decoration: none;
+                    background: $darkBlue;
+                    padding: .7em 2em;
+                }
+            }
+        }
+
+// -------------landing page-------------
+        .lp-content{
+            display: flex;
+            gap: 4em;
+            flex-wrap: wrap;
+            
+// ----------landing page left side----------
+            .lp-content-left{
+                min-width: 380px;
+                flex: 1;
+                margin-top: 3em;
+
+                .main-txt{
+                    font-size: 3em;
+                    font-weight: 600;
+                    margin-bottom: 20px;
+                    width: 94%;
+                    
+                    span{
+                        color: $mainOrange;
+                    }
+                }
+
+                .sub-txt{
+                    width: 80%;
+                    font-size: 1.3em;
+                    color: $mainGrey;
+                    margin-bottom: 2em;
+                }
+
+                .buttons{
+                    margin-bottom: 3em;
+                    a{
+                        box-shadow: 2px 2px 5px #999;
+                        text-decoration: none;
+                        padding: .6em 1.2em;
+                    }
+
+                    .g-started{
+                        color: #fff;
+                        background: $darkBlue;
+                        margin-right: 5px;
+                    }
+
+                    .l-more{
+                        font-weight: bolder;
+                        background: transparent;
+                        color: $darkBlue;
+                        border: 1px solid $darkBlue;
+                    }
+                }
+                .listeners{
+                    display: flex;
+                    
+                    .testifier-img{
+                        display: flex;
+                        :not(:first-child){
+                            border-left: 4px solid #fff;
+                        }
+                        
+                        .testifier{
+                            width: 50px;
+                            height: 50px;
+                            border-radius: 50%;
+                            display: flex;
+                            justify-content: center;
+
+                            img{
+                                
+                                height: 100%;
+                                clip-path: circle();
+                            }
+                        }
+
+                        .img1{
+                            
+                        }
+
+                        .img2{
+                            transform: translateX(-20%);
+                        }
+                        .img3{
+                            transform: translateX(-40%);
+                        }
+                    }
+                    p{
+                        color: $mainGrey;
+                    }
+                }
+            }
+
+// ---------------landing page right side---------------
+            .lp-content-right{
+                flex: 1;
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: repeat(2, 1fr);
+
+                img{
+                    width: 100%;
+                    min-width: 150px;
+                    max-width: 300px;
+                }
+
+                .guy{
+                    grid-column: 1/2;
+                    grid-row: 2/3;
+                    justify-self: end;
+                }
+                .girl{
+                    align-self: end;
+                    grid-column: 2/3;
+                }
+            }
+        }
+    }
+}
